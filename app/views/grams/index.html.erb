@@ -1,1 +1,6 @@
-<h4>Hello</h4>
+
+<div class="container">
+  <% @grams.each do |gram| %>
+  <h2><%= gram.message %></h2>
+  <% end %>
+</div>

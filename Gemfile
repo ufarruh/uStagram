@@ -4,6 +4,7 @@ gem 'rails', '4.0.1'
 
 gem 'pg'
 
+gem 'simple_form'
 
 gem 'uglifier', '>= 1.3.0'
 
