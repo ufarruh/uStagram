@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe GramsController, type: :controller do
+
   describe "grams#index action" do
     it "should successfully show the page" do
       get :index
@@ -13,6 +14,7 @@ RSpec.describe GramsController, type: :controller do
       get :new
       expect(response).to have_http_status(:success)
     end
+  end
 
     describe "grams#create action" do
       it "should successfully create a new gram in our database" do
@@ -25,7 +27,9 @@ RSpec.describe GramsController, type: :controller do
     end
 
 
+  it "should properly deal with validation errors" do
+    post :create, gram: {message: ''}
+    expect(response).to have_http_status(:unprocessable_entity)
+    expect(Gram.count).to eq 0
   end
-
-
 end
