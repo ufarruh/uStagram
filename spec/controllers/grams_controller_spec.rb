@@ -14,12 +14,9 @@ RSpec.describe GramsController, type: :controller do
       get :new
       expect(response).to redirect_to new_user_session_path
     end
+
     it "should successfully show the new form" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryGirl.create(:user)
       sign_in user
 
       get :new
@@ -31,16 +28,12 @@ RSpec.describe GramsController, type: :controller do
   describe "grams#create action" do
 
     it "should require users to be logged in" do
-    post :create, gram: { message: "Hello" }
-    expect(response).to redirect_to new_user_session_path
-  end
+      post :create, gram: { message: "Hello" }
+      expect(response).to redirect_to new_user_session_path
+    end
 
     it "should successfully create a new gram in our database" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryGirl.create(:user)
       sign_in user
 
       post :create, gram: { message: 'Hello!'}
@@ -52,11 +45,7 @@ RSpec.describe GramsController, type: :controller do
     end
 
     it "should properly deal with validation errors" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryGirl.create(:user)
       sign_in user
 
       gram_count = Gram.count

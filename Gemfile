@@ -30,4 +30,5 @@ gem 'jbuilder', '~> 1.2'
 
 group :doc do
   gem 'sdoc', require: false
+  gem "factory_girl_rails", "~> 4.0"
 end
