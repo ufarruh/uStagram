@@ -4,7 +4,7 @@ UStagram::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root "grams#index"
 
-  resources :grams, only: [:new, :create, :show, :edit, :update]
+  resources :grams
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
