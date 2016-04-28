@@ -5,6 +5,10 @@ class GramsController < ApplicationController
     @grams = Gram.all
   end
 
+
+  def destory
+
+  end
   def new
     @gram = Gram.new
   end
