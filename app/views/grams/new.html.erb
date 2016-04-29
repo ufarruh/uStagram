@@ -1,6 +1,7 @@
 <div class="container">
   <h1>New Gram</h1>
   <%= simple_form_for @gram do |g| %>
+  <%= g.input :picture %>
     <%= g.input :message %>
     <br />
     <%= g.submit "Post", class: "btn btn-success"%>
