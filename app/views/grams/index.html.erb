@@ -2,6 +2,6 @@
 <div class="container">
   <% @grams.each do |gram| %>
   <h2><%= gram.message %></h2>
-  <%= image_tag gram.picture, class: "image" %>
+  <%= image_tag gram.picture %>
   <% end %>
 </div>
