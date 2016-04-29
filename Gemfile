@@ -12,6 +12,10 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'carrierwave'
 
+gem "fog", "~> 1.3.1"
+
+gem "figaro"
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
