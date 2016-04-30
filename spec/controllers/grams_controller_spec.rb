@@ -161,16 +161,20 @@ end
     end
 
     it "should successfully create a new gram in our database" do
-      user = FactoryGirl.create(:user)
-      sign_in user
+  user = FactoryGirl.create(:user)
+  sign_in user
 
-      post :create, gram: { message: 'Hello!'}
-      expect(response).to redirect_to root_path
+  post :create, gram: {
+    message: 'Hello!',
+    picture: fixture_file_upload("/picture.png", 'image/png')
+  }
 
-      gram = Gram.last
-      expect(gram.message).to eq("Hello!")
-      expect(gram.user).to eq(user)
-    end
+  expect(response).to redirect_to root_path
+
+  gram = Gram.last
+  expect(gram.message).to eq("Hello!")
+  expect(gram.user).to eq(user)
+end
 
     it "should properly deal with validation errors" do
       user = FactoryGirl.create(:user)
