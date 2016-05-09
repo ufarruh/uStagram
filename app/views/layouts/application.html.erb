@@ -26,30 +26,36 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><%= link_to 'New Gram', new_gram_path %></li>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+      <% if (!user_signed_in?) %>
+      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+      <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <% else %>
+
+
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.email %><span class="caret"></span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="#">Summary</a></li>
+            <li><a href="#">Account Settings</a></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+          </ul>
+
+        </li>
+
+      <% end %>
+
         </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-          <% if current_user %>
-              <li>You're signed in as <%= current_user.email %>.</li>
-              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "Sign In", new_user_session_path %></li>
-              <li><%= link_to "Sign Up", new_user_registration_path %></li>
-            <% end %>
-            <% if notice.present? %>
-              <p class="notice"><%= notice %></p>
-            <% end %>
-
-            <% if alert.present? %>
-              <p class="alert"><%= alert %></p>
-            <% end %>
-
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+    </div><!-- /.navbar-collapse -->
   </nav>
 
 
