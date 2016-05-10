@@ -2,3 +2,4 @@ language: ruby
 rvm:
   - 2.2
   - 2.0
+script: ruby spec/controllers/grams_controller_spec.rb
