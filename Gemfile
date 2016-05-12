@@ -16,6 +16,8 @@ gem "fog", "~> 1.3.1"
 
 gem "figaro"
 
+# Testing travis
+# Testing travis 2
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
