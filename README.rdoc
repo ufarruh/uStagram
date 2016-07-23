@@ -1,4 +1,4 @@
-<h4>uStagram is the replica of Instagram.</h4>
+uStagram is the replica of Instagram.
 
-<h3>It was built with Ruby on Rails and PostgreSQL.</h3>
-<h3>Used RSpec to test and FactoryGirl for dummy data creation.</h3>
+It was built with Ruby on Rails and PostgreSQL.
+Used RSpec to test and FactoryGirl for dummy data creation.
